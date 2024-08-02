@@ -1,0 +1,18 @@
+[project]
+name = "aiober"
+version = "0.0.1"
+authors = [
+  { name="Ottoman", email="hogopro15.kk@gmail.com" },
+]
+description = "The AioBer library AsyncIO viBER (Aiober) is a python library for creating Viber bots easily, professionally and in a structured way!"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/EvenEasy/aiober"
+Issues = "https://github.com/EvenEasy/aiober/issues"
