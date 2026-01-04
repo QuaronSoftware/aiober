@@ -1,5 +1,4 @@
 import json
-import logging
 from pydantic import parse_obj_as
 from abc import ABC, abstractmethod
 from typing import Any
@@ -27,11 +26,9 @@ class BaseSession(ABC):
         except Exception as E:
             raise UnicodeDecodeError("failed to decode object")
 
-        logging.debug(json_data)
-
         response = parse_obj_as(Response, json_data)
 
-        if 200 <= status_code <= 220:
+        if 200 <= status_code <= 220 and response.status==0:
             return response
         
-        raise RuntimeError(f'status code {status_code}')
+        raise RuntimeError(f'status code {status_code}; response: {response.dict()}')

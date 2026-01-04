@@ -46,7 +46,7 @@ class Dispatcher(Router):
         event: ViberObject = parse_object(data, self.bot)
 
         start_time = time.time()
-        print(int(start_time*1000), event.timestamp, int(start_time*1000)-100 <= event.timestamp)
+        # logging.info(int(start_time*1000), event.timestamp, int(start_time*1000)-100 <= event.timestamp)
         if (int(start_time*1000)-event.timestamp) >= 10000: return Response(status=200)
 
         # get user state
@@ -66,7 +66,7 @@ class Dispatcher(Router):
         now = time.time()
         dif = round(now - start_time, 2)
 
-        logging.info(f"Update is{' not' if not handled else ''} handled - {dif * 100} ms")
+        logging.info(f"Update is{' not' if not handled else ''} handled - {dif * 100:.0f} ms")
         
         return Response(status=200)
 

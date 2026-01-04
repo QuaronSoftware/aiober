@@ -61,13 +61,13 @@ class Message(ViberObject):
             sticker_id=None
         ).as_(self._bot)
     
-    def answer_picture(self, media: Any, keyboard: Keyboard = None):
+    def answer_picture(self, media: Any, text: str = None, keyboard: Keyboard = None):
         from aiober.methods import SendMessage
         
         return SendMessage(
             receiver=self.sender.id,
-            type=self.type,
-            text=None,
+            type='picture',
+            text=text,
             media=media,
             thumbnail=media,
             rich_media=self.rich_media,

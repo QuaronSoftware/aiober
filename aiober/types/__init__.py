@@ -8,7 +8,6 @@ from .seen import Seen
 from .conversation_started import ConversationStarted
 from .subscribed import Subscribed, Unsubscribed
 from .rich_media import RichMediaKeyboard
-from .webhook import Webhook
 
 __all__ = [
     'Message',
@@ -21,8 +20,7 @@ __all__ = [
     'KeyboardButton',
     'RichMediaKeyboard',
     'RMKeyboardButton',
-    'parse_object',
-    'Webhook'
+    'parse_object'
 ]
 
 _object: dict[str, ViberObject] = {

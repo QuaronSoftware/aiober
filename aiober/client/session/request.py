@@ -1,3 +1,4 @@
+import logging
 import ssl
 import certifi
 import json
@@ -43,13 +44,15 @@ class AiohttpSession(BaseSession):
         session = await self.create_session(bot.token)
 
         url = self.api.get_api_url(method.__api_method__)
-        form_data = self.build_form_data(method.dict())
+        form_data = self.build_form_data(method.dict(exclude_none=True))
+        logging.debug(form_data)
 
         try:
             async with session.post(
                 url, data=json.dumps(form_data), timeout=self.timeout if timeout is None else timeout
             ) as resp:
                 raw_result = await resp.text()
+                logging.debug(raw_result)
         except RuntimeError:
             raise RuntimeError()
         except Exception as E:
