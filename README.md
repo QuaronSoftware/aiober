@@ -12,7 +12,7 @@
 
 ### Installing
 Creating a viber bot is easy !
-1. Install the library with `pip install git+https://github.com/QuaronSoftware/aiober.git` or using git
+1. Install the library with `pip install aiober`
 2. From aiober import Bot and Dispatcher to your projects
 3. Build a simple script like in **Example**
 4. Make viber bot [here](https://partners.viber.com/account/create-bot-account)
