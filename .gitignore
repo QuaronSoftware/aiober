@@ -1,4 +1,6 @@
+dist
+test.py
 .venv
+*.egg-info
 *.json
 *__pycache__
-test.py

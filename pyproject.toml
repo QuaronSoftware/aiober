@@ -1,18 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "aiober"
 version = "0.0.1"
 authors = [
-  { name="Gucul", },
+  { name = "Gucul" }
 ]
 description = "The AioBer library AsyncIO viBER (Aiober) is a python library for creating Viber bots easily, professionally and in a structured way!"
 readme = "README.md"
 requires-python = ">=3.8"
+license = { text = "MIT" }
 classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+]
+
+dependencies = [
+  "redis==7.1.1",
+  "pydantic==2.12.5",
+  "aiohttp==3.13.3",
+  "certifi==2026.1.4",
 ]
 
 [project.urls]
 Homepage = "https://github.com/QuaronSoftware/aiober"
 Issues = "https://github.com/QuaronSoftware/aiober/issues"
+
+[tool.setuptools]
+# пакет прямо в корені — нічого не треба package-dir
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["aiober*"]
+exclude = ["tests*", "test*", "__pycache__*"]
