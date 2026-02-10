@@ -2,7 +2,7 @@
 name = "aiober"
 version = "0.0.1"
 authors = [
-  { name="Gucul", email="hogopro15.kk@gmail.com" },
+  { name="Gucul", },
 ]
 description = "The AioBer library AsyncIO viBER (Aiober) is a python library for creating Viber bots easily, professionally and in a structured way!"
 readme = "README.md"

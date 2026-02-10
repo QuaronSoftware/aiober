@@ -1,7 +1,12 @@
 
-from typing import Any
+from typing import Any, Literal
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+
+from aiober.fsm.state import State
+
+StateType = str | State | None
+StorageKeyBuildType = Literal['state', 'data']
 
 
 @dataclass(frozen=True)
@@ -9,11 +14,15 @@ class StorageKey:
     user_id: str
     chat_id: str
 
+    def build(self, type: StorageKeyBuildType):
+        return f"{self.chat_id}:{self.user_id}:{type}"
+
+
 class BaseStorage(ABC):
     
 
     @abstractmethod
-    async def set_state(self, key: StorageKey, state: str) -> None:
+    async def set_state(self, key: StorageKey, state: StateType) -> None:
         """
         Set state for key
 

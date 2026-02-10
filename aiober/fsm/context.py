@@ -1,5 +1,5 @@
 from typing import Any
-from .storage.base import BaseStorage, StorageKey
+from .storage.base import BaseStorage, StorageKey, StateType
 
 class FSMcontext:
     
@@ -10,7 +10,7 @@ class FSMcontext:
     async def get_state(self) -> str:
         return await self._storage.get_state(self._storage_key)
 
-    async def set_state(self, state: str) -> None:
+    async def set_state(self, state: StateType) -> None:
         return await self._storage.set_state(self._storage_key, state=state)
     
     async def get_data(self) -> dict[str, Any]:
